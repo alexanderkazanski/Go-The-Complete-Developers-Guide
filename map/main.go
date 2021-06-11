@@ -2,10 +2,6 @@ package main
 
 import "fmt"
 
-type Alexander struct {
-	wants string
-}
-
 func main() {
 	colors := map[string]string{
 		"red":   "#ff0000",
@@ -13,4 +9,12 @@ func main() {
 		"white": "#ffffff",
 	}
 	fmt.Println(colors)
+	goThroughColors(colors)
+}
+
+func goThroughColors(c map[string]string) {
+	for key, value := range c {
+		fmt.Println(key)
+		fmt.Println(value)
+	}
 }
