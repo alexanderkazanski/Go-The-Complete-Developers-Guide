@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt" 
-	"strings"
+	"fmt"
 	"io/ioutil"
-	"os"
 	"math/rand"
+	"os"
+	"strings"
 	"time"
 )
 
@@ -45,7 +45,7 @@ func newDeckFromDisk(filename string) deck {
 	if err != nil {
 		fmt.Println("Error:", err)
 		os.Exit(1)
-	} 
+	}
 	d := strings.Split(string(bs), ",")
 	return deck(d)
 }
@@ -53,12 +53,11 @@ func newDeckFromDisk(filename string) deck {
 func (d deck) shuffel() {
 	source := rand.NewSource(time.Now().UnixNano())
 	r := rand.New(source)
-    for i, _ := range d {
+	for i, _ := range d {
 		random := r.Intn(len(d) - 1)
 		d[i], d[random] = d[random], d[i]
 	}
 }
-
 
 func (d deck) print() {
 	for i, card := range d {
